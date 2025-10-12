@@ -29,7 +29,6 @@ int main (int argc, char *argv[]){
 	int opcao;
 
 	do {
-		/*limparTela(); */
 		printf("+-----------------------------+\n");
 		printf("|----Atendimento Bancário-----|\n"); 
 		printf("+-----------------------------+\n");
@@ -40,6 +39,7 @@ int main (int argc, char *argv[]){
 		printf("+-----------------------------+\n");
 		printf("=> ");
         	scanf("%d",&opcao);
+		getchar();
 		switch(opcao){
 			case 1:inserir();
 			       break;
@@ -49,7 +49,6 @@ int main (int argc, char *argv[]){
 			       break;
                 	case 4:break;
 			default:printf("\nOpção Inválida!\n");
-				continue;
 		}
 	} while (opcao != 4);
 
@@ -57,10 +56,9 @@ int main (int argc, char *argv[]){
 }
 
 int inserir(){
-	
-	noh *novo_no;
-	int op;
-		limparTela();
+			
+		noh *novo_no;
+		int op;
 		printf("+-----------------------------+\n");
 		printf("|----Atendimento Bancário-----|\n");
                 printf("+-----------------------------+\n");
@@ -70,6 +68,7 @@ int inserir(){
 		printf("+-----------------------------+\n");
 		printf("=> ");
                 scanf("%d",&op);
+		getchar();
 		switch(op){
 			case 1:	novo_no = (noh *) malloc(sizeof(noh));
 				novo_no->numero = ++senha_comum;			
@@ -83,6 +82,7 @@ int inserir(){
 				} else {
 					inserirSemPrioridade(novo_no);
 				}
+				
 				break;
 			case 2: novo_no = (noh *) malloc(sizeof(noh));
                                 novo_no->numero = ++senha_prioridade;
@@ -100,6 +100,7 @@ int inserir(){
 			case 3: break;
 			default: printf("\nOpção de Prioridade Inválida!\n");
 		}
+	
 	return(0);
 }
 
@@ -150,7 +151,6 @@ int inserirSemPrioridade(noh *no_incluir){
 
 int imprimirFilaClientes(){
 	
-	limparTela();
         if(cabeca == NULL){
                 printf("+-----------------------------+\n");
                 printf("|----Atendimento Bancário-----|\n");
@@ -178,7 +178,6 @@ int imprimirFilaClientes(){
 
 int atenderCliente(){
 
-	limparTela();
         if(cabeca == NULL){
                 printf("+-----------------------------+\n");
                 printf("|----Atendimento Bancário-----|\n");
